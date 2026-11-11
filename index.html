@@ -1,0 +1,737 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>document.documentElement.classList.add("js");</script>
+  <title>Prawa człowieka — interaktywny lapbook</title>
+  <meta name="description" content="Krótki, interaktywny lapbook o prawach człowieka: 8 kart, oś czasu, dokumenty, przykłady naruszeń i quiz. WOS, klasa 8.">
+  <meta name="theme-color" content="#1d2a33">
+  <meta property="og:title" content="Prawa człowieka — interaktywny lapbook">
+  <meta property="og:description" content="8 kart, oś czasu, dokumenty i quiz. Krótki lapbook o prawach człowieka na WOS.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="scroll-progress" id="progress" aria-hidden="true"></div>
+
+  <svg class="icon-sprite" aria-hidden="true">
+    <symbol id="icon-heart" viewBox="0 0 24 24">
+      <path d="M12 20.2S4.8 15.6 4.8 10.4A3.9 3.9 0 0 1 12 8.1a3.9 3.9 0 0 1 7.2 2.3c0 5.2-7.2 9.8-7.2 9.8Z"/>
+      <path d="M3 12h3l1.4-2.6L9.6 15l1.8-4 1.3 2.1H16"/>
+    </symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24">
+      <path d="M12 3.2 19 6v5c0 4.4-3 7.3-7 8.8-4-1.5-7-4.4-7-8.8V6l7-2.8Z"/>
+      <path d="m8.8 11.6 2.1 2.1 4.3-4.3"/>
+    </symbol>
+    <symbol id="icon-scale" viewBox="0 0 24 24">
+      <path d="M12 4v16M7 20h10M4 8h16M7 8l-3.2 5.2h6.4L7 8Zm10 0-3.2 5.2h6.4L17 8Z"/>
+    </symbol>
+    <symbol id="icon-megaphone" viewBox="0 0 24 24">
+      <path d="M4 10v4l10 4V6L4 10Zm10-4 6 4-6 4M4 10H3a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h1"/>
+      <path d="M7.5 15.5 8.4 20"/>
+    </symbol>
+    <symbol id="icon-book" viewBox="0 0 24 24">
+      <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H11v18H6.5A2.5 2.5 0 0 1 4 18.5v-13ZM20 5.5A2.5 2.5 0 0 0 17.5 3H13v18h4.5a2.5 2.5 0 0 0 2.5-2.5v-13Z"/>
+    </symbol>
+    <symbol id="icon-lock" viewBox="0 0 24 24">
+      <rect x="4.5" y="10" width="15" height="11" rx="2.5"/>
+      <path d="M8 10V7.5a4 4 0 0 1 8 0V10M12 14v3"/>
+    </symbol>
+    <symbol id="icon-child" viewBox="0 0 24 24">
+      <circle cx="12" cy="7.5" r="3.2"/>
+      <path d="M5.5 21c.3-4.1 3-6.8 6.5-6.8s6.2 2.7 6.5 6.8M9 15.2l3 3.8 3-3.8"/>
+    </symbol>
+    <symbol id="icon-clock" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9"/>
+      <path d="M12 7v5.3l3.2 1.9"/>
+    </symbol>
+    <symbol id="icon-file" viewBox="0 0 24 24">
+      <path d="M6 3h8l4 4v14H6V3Z"/>
+      <path d="M14 3v5h5M9 12h6M9 16h6"/>
+    </symbol>
+    <symbol id="icon-alert" viewBox="0 0 24 24">
+      <path d="M12 3 2.8 20h18.4L12 3Z"/>
+      <path d="M12 9v5M12 17.2h.01"/>
+    </symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24">
+      <path d="M5 12h14M13 6l6 6-6 6"/>
+    </symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24">
+      <path d="m5 12.5 4.5 4.5L19 6.5"/>
+    </symbol>
+    <symbol id="icon-x" viewBox="0 0 24 24">
+      <path d="m6 6 12 12M18 6 6 18"/>
+    </symbol>
+  </svg>
+
+  <header class="site-header" id="site-header">
+    <a class="brand" href="#top">
+      <span class="brand-text">Prawa człowieka</span>
+    </a>
+
+    <nav class="site-nav" aria-label="Sekcje lapbooka">
+      <a href="#fundament">Fundament</a>
+      <a href="#historia">Historia</a>
+      <a href="#prawa">Karty</a>
+      <a href="#instytucje">Instytucje</a>
+      <a href="#alert">Alert</a>
+      <a href="#quiz">Quiz</a>
+      <a href="#zrodla">Źródła</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">WOS • klasa 8 • interaktywny lapbook</p>
+          <h1 id="hero-title">Prawa<br><em>człowieka</em></h1>
+          <p class="hero-lead">Nie lista haseł. Instrukcja obsługi własnych praw — w ośmiu kartach, jednej osi czasu i pięciu pytaniach.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#fundament">
+              Otwórz lapbook
+              <svg class="icon"><use href="#icon-arrow"/></svg>
+            </a>
+            <a class="btn btn-ghost" href="#prawa">Zobacz karty</a>
+          </div>
+          <p class="hero-note">10 grudnia 1948 • Powszechna Deklaracja Praw Człowieka</p>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="folder">
+            <div class="folder-paper">
+              <span class="paper-kicker">Powszechna Deklaracja</span>
+              <strong>30</strong>
+              <span class="paper-sub">artykułów</span>
+              <div class="paper-lines"></div>
+            </div>
+            <div class="folder-front">
+              <span class="folder-tag">art. 1</span>
+              <span class="folder-label">PRAWA<br>CZŁOWIEKA</span>
+              <span class="folder-stamp">1948</span>
+            </div>
+            <span class="tape tape-a"></span>
+            <span class="tape tape-b"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>GODNOŚĆ</span><span>•</span><span>WOLNOŚĆ</span><span>•</span><span>RÓWNOŚĆ</span><span>•</span><span>PRAWDA</span><span>•</span><span>BEZPIECZEŃSTWO</span><span>•</span>
+          <span>GODNOŚĆ</span><span>•</span><span>WOLNOŚĆ</span><span>•</span><span>RÓWNOŚĆ</span><span>•</span><span>PRAWDA</span><span>•</span><span>BEZPIECZEŃSTWO</span><span>•</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- FUNDAMENT -->
+    <section class="section section-fundament" id="fundament" aria-labelledby="fundament-title">
+      <div class="section-inner">
+        <div class="section-head" data-reveal>
+          <p class="section-kicker">01 / Fundament</p>
+          <h2 id="fundament-title">Zacznij od godności</h2>
+          <p class="section-lead">Prawa człowieka przysługują każdemu od urodzenia — nie dlatego, że dało je państwo, ale dlatego, że jest człowiekiem. Państwo ma je chronić.</p>
+        </div>
+
+        <div class="quote-card" data-reveal>
+          <p class="quote-text">„Wszyscy ludzie rodzą się wolni i równi w godności i prawach.”</p>
+          <p class="quote-source">Powszechna Deklaracja Praw Człowieka, art. 1 • 1948</p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature" data-reveal>
+            <span class="feature-num">01</span>
+            <h3>Powszechne</h3>
+            <p>Takie same dla każdego — niezależnie od kraju, religii, płci czy majątku.</p>
+          </article>
+          <article class="feature" data-reveal>
+            <span class="feature-num">02</span>
+            <h3>Przyrodzone</h3>
+            <p>Wynikają z faktu bycia człowiekiem, a nie z decyzji władzy.</p>
+          </article>
+          <article class="feature" data-reveal>
+            <span class="feature-num">03</span>
+            <h3>Niezbywalne</h3>
+            <p>Nie można się ich zrzec, sprzedać ani „oddać” w umowie.</p>
+          </article>
+          <article class="feature" data-reveal>
+            <span class="feature-num">04</span>
+            <h3>Niepodzielne</h3>
+            <p>Wszystkie są ważne. Prawo do nauki bez godności to fikcja.</p>
+          </article>
+        </div>
+
+        <div class="compare" data-reveal>
+          <div class="compare-card">
+            <p class="compare-label">PRAWO</p>
+            <h3>Państwo musi coś zrobić</h3>
+            <p>Np. prawo do nauki → państwo zapewnia szkołę.</p>
+          </div>
+          <div class="compare-card">
+            <p class="compare-label">WOLNOŚĆ</p>
+            <h3>Państwo musi się powstrzymać</h3>
+            <p>Np. wolność słowa → państwo nie cenzuruje.</p>
+          </div>
+          <div class="compare-card compare-card-accent">
+            <p class="compare-label">GRANICA</p>
+            <h3>Twoja wolność kończy się tam, gdzie zaczyna się wolność drugiego</h3>
+            <p>Art. 29 Deklaracji • art. 31 Konstytucji RP</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HISTORIA -->
+    <section class="section section-historia" id="historia" aria-labelledby="historia-title">
+      <div class="section-inner">
+        <div class="section-head" data-reveal>
+          <p class="section-kicker">02 / Historia</p>
+          <h2 id="historia-title">Skąd się wzięły?</h2>
+          <p class="section-lead">Nie w jednym dniu. Przez wieki — od ograniczenia władzy króla, przez rewolucje, po odpowiedź na barbarzyństwo II wojny światowej.</p>
+        </div>
+
+        <div class="timeline" data-reveal>
+          <article class="timeline-entry">
+            <span class="timeline-year">1215</span>
+            <button class="timeline-toggle" type="button" aria-expanded="false">
+              <h3>Magna Carta</h3>
+              <p>Król nie stoi ponad prawem.</p>
+            </button>
+            <div class="timeline-body">
+              <div>
+                <p>Anglia, król Jan bez Ziemi. Klauzula 39: wolnego człowieka można uwięzić tylko na podstawie wyroku sądu. Dokument chronił jednak tylko wolnych mężczyzn — nie chłopów, kobiety ani niewolników.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="timeline-entry">
+            <span class="timeline-year">1789</span>
+            <button class="timeline-toggle" type="button" aria-expanded="false">
+              <h3>Rewolucja francuska</h3>
+              <p>„Ludzie rodzą się wolni i równi”.</p>
+            </button>
+            <div class="timeline-body">
+              <div>
+                <p>Deklaracja Praw Człowieka i Obywatela — 17 artykułów. Wielki krok naprzód, ale kobiety nie dostały praw wyborczych, a niewolnictwo w koloniach przetrwało. Olympe de Gouges zapłaciła życiem za żądanie równych praw.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="timeline-entry">
+            <span class="timeline-year">1939</span>
+            <button class="timeline-toggle" type="button" aria-expanded="false">
+              <h3>II wojna światowa</h3>
+              <p>Holokaust i „nigdy więcej”.</p>
+            </button>
+            <div class="timeline-body">
+              <div>
+                <p>W latach 1939–1945 Niemcy i ich współpracownicy zamordowali około 6 milionów Żydów, a także Romów, osoby z niepełnosprawnościami i więźniów politycznych. Po wojnie świat uznał, że prawa człowieka nie mogą być „sprawą wewnętrzną” państwa.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="timeline-entry">
+            <span class="timeline-year">1945</span>
+            <button class="timeline-toggle" type="button" aria-expanded="false">
+              <h3>ONZ</h3>
+              <p>Świat mówi: „nigdy więcej”.</p>
+            </button>
+            <div class="timeline-body">
+              <div>
+                <p>Powstaje ONZ. Proces norymberski pokazuje po raz pierwszy, że jednostka może odpowiadać za zbrodnie przeciw ludzkości.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="timeline-entry">
+            <span class="timeline-year">1948</span>
+            <button class="timeline-toggle" type="button" aria-expanded="false">
+              <h3>Powszechna Deklaracja</h3>
+              <p>30 artykułów, jeden standard.</p>
+            </button>
+            <div class="timeline-body">
+              <div>
+                <p>10 grudnia 1948 r., Paryż. 48 głosów za, 0 przeciw, 8 wstrzymujących się. Deklaracja nie jest umową, ale stała się fundamentem ponad 70 traktatów i prawem zwyczajowym.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="timeline-entry">
+            <span class="timeline-year">1950</span>
+            <button class="timeline-toggle" type="button" aria-expanded="false">
+              <h3>Europejska Konwencja</h3>
+              <p>Prawa z egzekwowaniem przed sądem.</p>
+            </button>
+            <div class="timeline-body">
+              <div>
+                <p>Rada Europy tworzy dokument, na podstawie którego powstaje Europejski Trybunał Praw Człowieka w Strasburgu. Polska ratyfikuje Konwencję w 1993 r.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="timeline-entry">
+            <span class="timeline-year">1989</span>
+            <button class="timeline-toggle" type="button" aria-expanded="false">
+              <h3>Prawa dziecka</h3>
+              <p>Dziecko staje się podmiotem.</p>
+            </button>
+            <div class="timeline-body">
+              <div>
+                <p>Konwencja o prawach dziecka: 54 artykuły, 196 państw. Najważniejsze zasady: dobro dziecka, zakaz dyskryminacji, prawo do życia i rozwoju, prawo do głosu. Polska była inicjatorem prac.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <p class="timeline-note" data-reveal><strong>Polskie ślady:</strong> Neminem captivabimus (1430) • Konstytucja 3 maja (1791) • Janusz Korczak • polski projekt Konwencji o prawach dziecka (1978).</p>
+      </div>
+    </section>
+
+    <!-- KARTY -->
+    <section class="section section-prawa" id="prawa" aria-labelledby="prawa-title">
+      <div class="section-inner">
+        <div class="section-head" data-reveal>
+          <p class="section-kicker">03 / Katalog</p>
+          <h2 id="prawa-title">Osiem kart. Osiem praw.</h2>
+          <p class="section-lead">Kliknij kartę, żeby ją odwrócić. Z przodu masz nazwę i artykuł, z tyłu — prostą definicję, przykład i odpowiedź na pytanie „dlaczego to ważne”.</p>
+        </div>
+
+        <div class="rights-grid">
+          <article class="flip-card" role="button" tabindex="0" aria-pressed="false">
+            <div class="flip-inner">
+              <div class="flip-face flip-front">
+                <span class="card-index">01</span>
+                <span class="card-icon"><svg class="icon"><use href="#icon-heart"/></svg></span>
+                <h3>Prawo do życia</h3>
+                <p class="card-article">art. 3 Deklaracji • art. 38 Konstytucji</p>
+                <span class="flip-hint">Odwróć <svg class="icon"><use href="#icon-arrow"/></svg></span>
+              </div>
+              <div class="flip-face flip-back" aria-hidden="true">
+                <span class="card-back-label">Dlaczego ważne</span>
+                <h3>Prawo do życia</h3>
+                <p>Bez życia nie ma innych praw. Państwo musi chronić życie i zdrowie.</p>
+                <p class="card-example">Mdlejesz na lekcji → nauczyciel wzywa pomoc.</p>
+                <span class="flip-hint">Wróć <svg class="icon"><use href="#icon-arrow"/></svg></span>
+              </div>
+            </div>
+          </article>
+
+          <article class="flip-card" role="button" tabindex="0" aria-pressed="false">
+            <div class="flip-inner">
+              <div class="flip-face flip-front">
+                <span class="card-index">02</span>
+                <span class="card-icon"><svg class="icon"><use href="#icon-shield"/></svg></span>
+                <h3>Wolność i bezpieczeństwo</h3>
+                <p class="card-article">art. 3, 9 Deklaracji • art. 41 Konstytucji</p>
+                <span class="flip-hint">Odwróć <svg class="icon"><use href="#icon-arrow"/></svg></span>
+              </div>
+              <div class="flip-face flip-back" aria-hidden="true">
+                <span class="card-back-label">Dlaczego ważne</span>
+                <h3>Wolność i bezpieczeństwo</h3>
+                <p>Nikt nie może cię zatrzymać bez podstawy prawnej. Masz prawo znać powód.</p>
+                <p class="card-example">Policja musi podać podstawę zatrzymania i doprowadzić do sądu.</p>
+                <span class="flip-hint">Wróć <svg class="icon"><use href="#icon-arrow"/></svg></span>
+              </div>
+            </div>
+          </article>
+
+          <article class="flip-card" role="button" tabindex="0" aria-pressed="false">
+            <div class="flip-inner">
+              <div class="flip-face flip-front">
+                <span class="card-index">03</span>
+                <span class="card-icon"><svg class="icon"><use href="#icon-scale"/></svg></span>
+                <h3>Równość i zakaz dyskryminacji</h3>
+                <p class="card-article">art. 1, 2, 7 Deklaracji • art. 32 Konstytucji</p>
+                <span class="flip-hint">Odwróć <svg class="icon"><use href="#icon-arrow"/></svg></span>
+              </div>
+              <div class="flip-face flip-back" aria-hidden="true">
+                <span class="card-back-label">Dlaczego ważne</span>
+                <h3>Równość i zakaz dyskryminacji</h3>
+                <p>Prawo nie może traktować cię gorzej z powodu pochodzenia, płci, religii czy zdrowia.</p>
+                <p class="card-example">Szkoła musi być dostępna także dla osoby na wózku.</p>
+                <span class="flip-hint">Wróć <svg class="icon"><use href="#icon-arrow"/></svg></span>
+              </div>
+            </div>
+          </article>
+
+          <article class="flip-card" role="button" tabindex="0" aria-pressed="false">
+            <div class="flip-inner">
+              <div class="flip-face flip-front">
+                <span class="card-index">04</span>
+                <span class="card-icon"><svg class="icon"><use href="#icon-megaphone"/></svg></span>
+                <h3>Wolność słowa</h3>
+                <p class="card-article">art. 19 Deklaracji • art. 54 Konstytucji</p>
+                <span class="flip-hint">Odwróć <svg class="icon"><use href="#icon-arrow"/></svg></span>
+              </div>
+              <div class="flip-face flip-back" aria-hidden="true">
+                <span class="card-back-label">Dlaczego ważne</span>
+                <h3>Wolność słowa</h3>
+                <p>Możesz krytykować władzę i wyrażać opinie. Nie możesz hejtować ani grozić.</p>
+                <p class="card-example">Krytyka nauczyciela = OK. Obraźliwy mem o koledze = nie.</p>
+                <span class="flip-hint">Wróć <svg class="icon"><use href="#icon-arrow"/></svg></span>
+              </div>
+            </div>
+          </article>
+
+          <article class="flip-card" role="button" tabindex="0" aria-pressed="false">
+            <div class="flip-inner">
+              <div class="flip-face flip-front">
+                <span class="card-index">05</span>
+                <span class="card-icon"><svg class="icon"><use href="#icon-book"/></svg></span>
+                <h3>Wolność religii</h3>
+                <p class="card-article">art. 18 Deklaracji • art. 53 Konstytucji</p>
+                <span class="flip-hint">Odwróć <svg class="icon"><use href="#icon-arrow"/></svg></span>
+              </div>
+              <div class="flip-face flip-back" aria-hidden="true">
+                <span class="card-back-label">Dlaczego ważne</span>
+                <h3>Wolność religii</h3>
+                <p>Wierz lub nie. Nikt nie może cię zmuszać ani dyskryminować z tego powodu.</p>
+                <p class="card-example">Kolega nie chodzi na religię — to jego prawo.</p>
+                <span class="flip-hint">Wróć <svg class="icon"><use href="#icon-arrow"/></svg></span>
+              </div>
+            </div>
+          </article>
+
+          <article class="flip-card" role="button" tabindex="0" aria-pressed="false">
+            <div class="flip-inner">
+              <div class="flip-face flip-front">
+                <span class="card-index">06</span>
+                <span class="card-icon"><svg class="icon"><use href="#icon-book"/></svg></span>
+                <h3>Prawo do nauki</h3>
+                <p class="card-article">art. 26 Deklaracji • art. 70 Konstytucji</p>
+                <span class="flip-hint">Odwróć <svg class="icon"><use href="#icon-arrow"/></svg></span>
+              </div>
+              <div class="flip-face flip-back" aria-hidden="true">
+                <span class="card-back-label">Dlaczego ważne</span>
+                <h3>Prawo do nauki</h3>
+                <p>Nauka podstawowa jest bezpłatna i obowiązkowa. Państwo musi zapewnić szkołę.</p>
+                <p class="card-example">Dziecko z Ukrainy ma prawo do szkoły i pomocy w języku.</p>
+                <span class="flip-hint">Wróć <svg class="icon"><use href="#icon-arrow"/></svg></span>
+              </div>
+            </div>
+          </article>
+
+          <article class="flip-card" role="button" tabindex="0" aria-pressed="false">
+            <div class="flip-inner">
+              <div class="flip-face flip-front">
+                <span class="card-index">07</span>
+                <span class="card-icon"><svg class="icon"><use href="#icon-lock"/></svg></span>
+                <h3>Prawo do prywatności</h3>
+                <p class="card-article">art. 12 Deklaracji • art. 47 Konstytucji</p>
+                <span class="flip-hint">Odwróć <svg class="icon"><use href="#icon-arrow"/></svg></span>
+              </div>
+              <div class="flip-face flip-back" aria-hidden="true">
+                <span class="card-back-label">Dlaczego ważne</span>
+                <h3>Prawo do prywatności</h3>
+                <p>Twoje wiadomości, zdjęcia i dane są twoje. Nikt nie może ich czytać bez podstawy.</p>
+                <p class="card-example">Nie publikuj zdjęcia kolegi bez jego zgody.</p>
+                <span class="flip-hint">Wróć <svg class="icon"><use href="#icon-arrow"/></svg></span>
+              </div>
+            </div>
+          </article>
+
+          <article class="flip-card" role="button" tabindex="0" aria-pressed="false">
+            <div class="flip-inner">
+              <div class="flip-face flip-front">
+                <span class="card-index">08</span>
+                <span class="card-icon"><svg class="icon"><use href="#icon-child"/></svg></span>
+                <h3>Prawa dziecka</h3>
+                <p class="card-article">Konwencja o prawach dziecka • 1989</p>
+                <span class="flip-hint">Odwróć <svg class="icon"><use href="#icon-arrow"/></svg></span>
+              </div>
+              <div class="flip-face flip-back" aria-hidden="true">
+                <span class="card-back-label">Dlaczego ważne</span>
+                <h3>Prawa dziecka</h3>
+                <p>Dobro dziecka jest najważniejsze. Masz prawo do głosu w sprawach, które cię dotyczą.</p>
+                <p class="card-example">Samorząd klasy może wyrazić opinię o regulaminie.</p>
+                <span class="flip-hint">Wróć <svg class="icon"><use href="#icon-arrow"/></svg></span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <p class="rights-note" data-reveal><strong>Prawa absolutne:</strong> wolność od tortur i wolność od niewolnictwa. Tych praw nie można zawiesić nawet w wojnie.</p>
+      </div>
+    </section>
+
+    <!-- INSTYTUCJE -->
+    <section class="section section-instytucje" id="instytucje" aria-labelledby="instytucje-title">
+      <div class="section-inner">
+        <div class="section-head" data-reveal>
+          <p class="section-kicker">04 / Strażnicy</p>
+          <h2 id="instytucje-title">Kto tego pilnuje?</h2>
+          <p class="section-lead">Dokumenty mówią, co ci przysługuje. Instytucje mają sprawić, żeby to nie zostało na papierze. Kliknij zakładkę.</p>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="Dokumenty i instytucje">
+          <button class="tab-btn" id="tab-btn-udhr" role="tab" aria-selected="true" aria-controls="tab-udhr" tabindex="0">Deklaracja <span>1948</span></button>
+          <button class="tab-btn" id="tab-btn-ekpc" role="tab" aria-selected="false" aria-controls="tab-ekpc" tabindex="-1">Konwencja <span>1950</span></button>
+          <button class="tab-btn" id="tab-btn-onz" role="tab" aria-selected="false" aria-controls="tab-onz" tabindex="-1">ONZ <span>1945</span></button>
+          <button class="tab-btn" id="tab-btn-coe" role="tab" aria-selected="false" aria-controls="tab-coe" tabindex="-1">Rada Europy <span>1949</span></button>
+          <button class="tab-btn" id="tab-btn-etpc" role="tab" aria-selected="false" aria-controls="tab-etpc" tabindex="-1">ETPC <span>1959</span></button>
+        </div>
+
+        <div class="tab-panels" data-reveal>
+          <div class="tab-panel" id="tab-udhr" role="tabpanel" aria-labelledby="tab-btn-udhr" tabindex="0">
+            <div class="tab-copy">
+              <p class="tab-kicker">Powszechna Deklaracja Praw Człowieka</p>
+              <h3>Miękki dokument, twardy fundament</h3>
+              <p>Przyjęta 10 grudnia 1948 r. w Paryżu. Nie jest umową międzynarodową, ale stała się prawem zwyczajowym i inspiracją dla ponad 70 traktatów.</p>
+              <ul class="clean-list">
+                <li><svg class="icon"><use href="#icon-check"/></svg> 30 artykułów</li>
+                <li><svg class="icon"><use href="#icon-check"/></svg> 48 za • 0 przeciw • 8 wstrzymujących się</li>
+                <li><svg class="icon"><use href="#icon-check"/></svg> ponad 500 języków</li>
+              </ul>
+            </div>
+            <div class="tab-fact">
+              <strong>30</strong>
+              <span>artykułów</span>
+              <p>„Wszyscy ludzie rodzą się wolni i równi w godności i prawach.”</p>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="tab-ekpc" role="tabpanel" aria-labelledby="tab-btn-ekpc" tabindex="0" hidden>
+            <div class="tab-copy">
+              <p class="tab-kicker">Europejska Konwencja Praw Człowieka</p>
+              <h3>Prawa, które można dochodzić przed sądem</h3>
+              <p>Podpisana w Rzymie 4 listopada 1950 r. Obowiązuje 46 państw Rady Europy. Polska ratyfikowała ją 19 stycznia 1993 r.</p>
+              <ul class="clean-list">
+                <li><svg class="icon"><use href="#icon-check"/></svg> życie, wolność, sprawiedliwy proces</li>
+                <li><svg class="icon"><use href="#icon-check"/></svg> wolność słowa, religii, prywatność</li>
+                <li><svg class="icon"><use href="#icon-check"/></svg> zakaz tortur i niewolnictwa</li>
+              </ul>
+            </div>
+            <div class="tab-fact">
+              <strong>1950</strong>
+              <span>Rzym</span>
+              <p>Pierwsza umowa, która stworzyła sąd mogący sądzić państwo.</p>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="tab-onz" role="tabpanel" aria-labelledby="tab-btn-onz" tabindex="0" hidden>
+            <div class="tab-copy">
+              <p class="tab-kicker">Organizacja Narodów Zjednoczonych</p>
+              <h3>Globalny parasol ochronny</h3>
+              <p>Powstała 24 października 1945 r. Należy do niej 193 państwa. Prawami człowieka zajmuje się Rada Praw Człowieka, komitety traktatowe i Biuro Wysokiego Komisarza (OHCHR).</p>
+              <ul class="clean-list">
+                <li><svg class="icon"><use href="#icon-check"/></svg> Rada Praw Człowieka — 47 państw</li>
+                <li><svg class="icon"><use href="#icon-check"/></svg> komitety rozpatrują skargi i raporty</li>
+                <li><svg class="icon"><use href="#icon-check"/></svg> UPR — regularny przegląd każdego kraju</li>
+              </ul>
+            </div>
+            <div class="tab-fact">
+              <strong>193</strong>
+              <span>państwa</span>
+              <p>Największa organizacja międzynarodowa. Siedziba: Nowy Jork.</p>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="tab-coe" role="tabpanel" aria-labelledby="tab-btn-coe" tabindex="0" hidden>
+            <div class="tab-copy">
+              <p class="tab-kicker">Rada Europy</p>
+              <h3>Nie UE. Strasburg, nie Bruksela.</h3>
+              <p>Powstała 5 maja 1949 r. Zrzesza 46 państw europejskich. Polska jest członkiem od 26 listopada 1991 r. Jej największe osiągnięcie to Konwencja i Trybunał w Strasburgu.</p>
+              <ul class="clean-list">
+                <li><svg class="icon"><use href="#icon-check"/></svg> Komitet Ministrów</li>
+                <li><svg class="icon"><use href="#icon-check"/></svg> Zgromadzenie Parlamentarne</li>
+                <li><svg class="icon"><use href="#icon-check"/></svg> Komisarz Praw Człowieka</li>
+              </ul>
+            </div>
+            <div class="tab-fact">
+              <strong>46</strong>
+              <span>państw</span>
+              <p>Rosja została wykluczona w 2022 r. po inwazji na Ukrainę.</p>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="tab-etpc" role="tabpanel" aria-labelledby="tab-btn-etpc" tabindex="0" hidden>
+            <div class="tab-copy">
+              <p class="tab-kicker">Europejski Trybunał Praw Człowieka</p>
+              <h3>Sąd, przed którym staje państwo</h3>
+              <p>Działa w Strasburgu od 1959 r. Ma 46 sędziów — po jednym z każdego państwa. Skargę może złożyć każda osoba, ale dopiero po wyczerpaniu dróg krajowych.</p>
+              <ul class="clean-list">
+                <li><svg class="icon"><use href="#icon-check"/></svg> termin: 4 miesiące od prawomocnego wyroku</li>
+                <li><svg class="icon"><use href="#icon-check"/></svg> skarga bezpłatna</li>
+                <li><svg class="icon"><use href="#icon-check"/></svg> wyroki wiążące; wykonanie nadzoruje Komitet Ministrów</li>
+              </ul>
+            </div>
+            <div class="tab-fact">
+              <strong>4</strong>
+              <span>miesiące</span>
+              <p>ETPC nie jest sądem UE. Sąd UE jest w Luksemburgu.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ALERT -->
+    <section class="section section-alert" id="alert" aria-labelledby="alert-title">
+      <div class="section-inner">
+        <div class="section-head" data-reveal>
+          <p class="section-kicker">05 / Alert</p>
+          <h2 id="alert-title">Gdy prawa są łamane</h2>
+          <p class="section-lead">Naruszenie to nie tylko bicie czy więzienie. To także hejt, brak podjazdu, odmowa przyjęcia do szkoły i bierność, gdy ktoś potrzebuje pomocy.</p>
+        </div>
+
+        <div class="alert-grid">
+          <article class="alert-card" data-reveal>
+            <div class="alert-card-head">
+              <span class="alert-icon"><svg class="icon"><use href="#icon-alert"/></svg></span>
+              <h3>Przykłady</h3>
+            </div>
+            <ul class="alert-list">
+              <li><span class="num">01</span><div><strong>Apartheid w RPA</strong> — segregacja rasowa i odebranie praw politycznych.</div></li>
+              <li><span class="num">02</span><div><strong>Praca dzieci</strong> — ok. 138 mln dzieci na świecie (ILO/UNICEF, 2024).</div></li>
+              <li><span class="num">03</span><div><strong>Cyberprzemoc</strong> — groźby, obraźliwe memy, zdjęcia bez zgody.</div></li>
+              <li><span class="num">04</span><div><strong>Przemoc w rodzinie</strong> — bicie, zastraszanie, izolacja.</div></li>
+            </ul>
+          </article>
+
+          <article class="alert-card" data-reveal>
+            <div class="alert-card-head">
+              <span class="alert-icon alert-icon-good"><svg class="icon"><use href="#icon-shield"/></svg></span>
+              <h3>Co możesz zrobić</h3>
+            </div>
+            <ol class="steps">
+              <li><strong>Zapisz dowody.</strong> Zrzuty ekranu, notatki, świadkowie.</li>
+              <li><strong>Zgłoś.</strong> Wychowawca, pedagog, dyrekcja, policja (112).</li>
+              <li><strong>Szukaj pomocy.</strong> 116 111, RPO, RPD, organizacje.</li>
+              <li><strong>Nie zostawaj obojętny.</strong> Wspieraj osobę, której dzieje się krzywda.</li>
+            </ol>
+          </article>
+        </div>
+
+        <div class="scenario" data-reveal>
+          <p class="scenario-kicker">Szybka decyzja</p>
+          <h3>Kolega dostaje obraźliwe memy od całej klasy. Co robisz?</h3>
+          <div class="scenario-options" id="scenario-options">
+            <button class="scenario-option" type="button" data-correct="false">
+              <span class="letter">A</span>
+              <span>Udostępniam dalej — to tylko mem.</span>
+            </button>
+            <button class="scenario-option" type="button" data-correct="false">
+              <span class="letter">B</span>
+              <span>Nic nie robię. To nie moja sprawa.</span>
+            </button>
+            <button class="scenario-option" type="button" data-correct="true">
+              <span class="letter">C</span>
+              <span>Zapisuję dowody, zgłaszam szkole i wspieram kolegę.</span>
+            </button>
+          </div>
+          <p class="scenario-feedback" id="scenario-feedback" role="status" aria-live="polite" hidden></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUIZ -->
+    <section class="section section-quiz" id="quiz" aria-labelledby="quiz-title">
+      <div class="section-inner">
+        <div class="section-head section-head-center" data-reveal>
+          <p class="section-kicker">06 / Quiz</p>
+          <h2 id="quiz-title">Sprawdź się</h2>
+          <p class="section-lead">Pięć pytań. Bez ocen, bez stresu. Po każdym dostajesz krótkie wyjaśnienie.</p>
+        </div>
+
+        <div class="quiz-card" data-reveal>
+          <div class="quiz-meta">
+            <span id="quiz-step">Pytanie 1 / 5</span>
+            <span id="quiz-score">0 pkt</span>
+          </div>
+          <div class="quiz-progress" aria-hidden="true"><span id="quiz-bar"></span></div>
+
+          <div id="quiz-body">
+            <h3 class="quiz-question" id="quiz-question">Kiedy uchwalono Powszechną Deklarację Praw Człowieka?</h3>
+            <div class="quiz-options" id="quiz-options"></div>
+            <p class="quiz-feedback" id="quiz-feedback" role="status" aria-live="polite" hidden></p>
+            <button class="btn btn-primary quiz-next" id="quiz-next" type="button" hidden>Następne pytanie <svg class="icon"><use href="#icon-arrow"/></svg></button>
+          </div>
+
+          <div class="quiz-result" id="quiz-result" hidden>
+            <p class="quiz-result-score" id="quiz-result-score">5 / 5</p>
+            <h3 id="quiz-result-title">Ekspert od godności</h3>
+            <p id="quiz-result-text">Wiesz, gdzie szukać praw i jak je chronić.</p>
+            <button class="btn btn-primary" id="quiz-restart" type="button">Zagraj jeszcze raz</button>
+          </div>
+        </div>
+
+        <div class="print-answers">
+          <h3>Quiz — odpowiedzi</h3>
+          <ol>
+            <li>1948 — 10 grudnia, Paryż.</li>
+            <li>Trybunał Rady Europy w Strasburgu — nie sąd UE.</li>
+            <li>Wolność od tortur — prawo absolutne.</li>
+            <li>Wynikają z samego faktu bycia człowiekiem.</li>
+            <li>Konwencja o prawach dziecka z 1989 r.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ŹRÓDŁA -->
+    <section class="section section-zrodla" id="zrodla" aria-labelledby="zrodla-title">
+      <div class="section-inner">
+        <div class="section-head" data-reveal>
+          <p class="section-kicker">07 / Źródła</p>
+          <h2 id="zrodla-title">Sprawdź sam</h2>
+          <p class="section-lead">Krótka lista wiarygodnych źródeł. Wszystkie linki otwierają się w nowej karcie.</p>
+        </div>
+
+        <div class="sources-list">
+          <a class="source-link" href="https://www.ohchr.org/en/human-rights/universal-declaration/translations/polish-polski" target="_blank" rel="noopener noreferrer">
+            <span><strong>ONZ / OHCHR</strong><br>Powszechna Deklaracja — tekst polski</span>
+            <span class="source-domain">ohchr.org ↗</span>
+          </a>
+          <a class="source-link" href="https://www.un.org/en/about-us/universal-declaration-of-human-rights" target="_blank" rel="noopener noreferrer">
+            <span><strong>ONZ</strong><br>Deklaracja — historia i tekst</span>
+            <span class="source-domain">un.org ↗</span>
+          </a>
+          <a class="source-link" href="https://www.echr.coe.int/documents/d/echr/convention_POL" target="_blank" rel="noopener noreferrer">
+            <span><strong>ETPC</strong><br>Europejska Konwencja — tekst polski</span>
+            <span class="source-domain">echr.coe.int ↗</span>
+          </a>
+          <a class="source-link" href="https://www.coe.int/pl/web/about-us/structure" target="_blank" rel="noopener noreferrer">
+            <span><strong>Rada Europy</strong><br>Struktura i działanie</span>
+            <span class="source-domain">coe.int ↗</span>
+          </a>
+          <a class="source-link" href="https://unicef.pl/prawa-dziecka/wiedza-i-pomoc/konwencja-o-prawach-dziecka" target="_blank" rel="noopener noreferrer">
+            <span><strong>UNICEF Polska</strong><br>Konwencja o prawach dziecka</span>
+            <span class="source-domain">unicef.pl ↗</span>
+          </a>
+          <a class="source-link" href="https://www.amnesty.org.pl/zglebiaj-wiedze/prawa-czlowieka/" target="_blank" rel="noopener noreferrer">
+            <span><strong>Amnesty International</strong><br>Prawa człowieka — definicje i historia</span>
+            <span class="source-domain">amnesty.org.pl ↗</span>
+          </a>
+          <a class="source-link" href="https://www.sejm.gov.pl/prawo/konst/polski/2.htm" target="_blank" rel="noopener noreferrer">
+            <span><strong>Sejm RP</strong><br>Konstytucja — rozdział II</span>
+            <span class="source-domain">sejm.gov.pl ↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <p class="footer-brand">Prawa człowieka<span>.</span></p>
+        <p class="footer-note">Interaktywny lapbook • WOS • klasa 8</p>
+      </div>
+      <div class="footer-meta">
+        <p>Źródła: ONZ • Rada Europy • UNICEF • Amnesty International</p>
+        <p>Zrobione z myślą o tym, żeby prawa nie zostały tylko na papierze.</p>
+      </div>
+      <a class="footer-top" href="#top">Na górę ↑</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
