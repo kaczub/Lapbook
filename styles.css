@@ -1698,14 +1698,30 @@ h3 {
   gap: 0.2rem;
 }
 
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.3rem;
+}
+
+.footer-a4,
 .footer-top {
-  justify-self: end;
   font-family: var(--font-mono);
   font-size: 0.62rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--mustard);
   white-space: nowrap;
+}
+
+.footer-a4:hover,
+.footer-top:hover {
+  text-decoration: underline;
+}
+
+.footer-top {
+  justify-self: end;
 }
 
 /* ---------- animacje ---------- */
@@ -1824,6 +1840,10 @@ h3 {
     grid-template-columns: 1fr;
     gap: 1.2rem;
     align-items: start;
+  }
+
+  .footer-links {
+    align-items: flex-start;
   }
 
   .footer-top {

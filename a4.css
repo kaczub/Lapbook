@@ -1,0 +1,783 @@
+/* =========================================================
+   PRAWA CZŁOWIEKA — wersja A4 (2 strony)
+   Arkusz do druku. Rozmiary w mm / pt.
+   ========================================================= */
+
+:root {
+  --ink: #1d2a33;
+  --ink-soft: #4f5f68;
+  --paper: #fffdf7;
+  --paper-2: #f8f3e8;
+  --terracotta: #a8432f;
+  --terracotta-soft: #f3e3dd;
+  --teal: #2f6f6a;
+  --teal-soft: #e6f0ed;
+  --mustard: #b97c16;
+  --line: #d8d0c1;
+  --line-dark: #b9b0a0;
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #e8e2d7;
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 8.2pt;
+  line-height: 1.38;
+  -webkit-font-smoothing: antialiased;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+h1,
+h2,
+h3,
+p,
+ul {
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+/* ---------- pasek ekranowy ---------- */
+
+.toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6mm;
+  padding: 3mm 6mm;
+  background: rgba(29, 42, 51, 0.94);
+  color: #f6f0e4;
+  font-family: var(--font-mono);
+  font-size: 7pt;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 4mm;
+}
+
+.toolbar button,
+.toolbar a {
+  border: 0.3mm solid rgba(246, 240, 228, 0.35);
+  border-radius: 99mm;
+  padding: 1.6mm 3mm;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.toolbar button:hover,
+.toolbar a:hover {
+  background: #f6f0e4;
+  color: var(--ink);
+}
+
+body {
+  padding-top: 16mm;
+}
+
+/* ---------- strony ---------- */
+
+.page {
+  position: relative;
+  width: 210mm;
+  height: 297mm;
+  margin: 0 auto 8mm;
+  padding: 10mm 13mm 8mm;
+  overflow: hidden;
+  background: var(--paper);
+  box-shadow: 0 4mm 12mm rgba(29, 42, 51, 0.18);
+  break-after: page;
+  page-break-after: always;
+}
+
+.page:last-of-type {
+  break-after: auto;
+  page-break-after: auto;
+}
+
+/* ---------- nagłówek ---------- */
+
+.doc-header {
+  display: grid;
+  grid-template-columns: 1fr 64mm;
+  gap: 7mm;
+  align-items: end;
+  padding-bottom: 3.2mm;
+  border-bottom: 0.6mm solid var(--ink);
+}
+
+.doc-title {
+  min-width: 0;
+}
+
+.eyebrow {
+  margin-bottom: 1.6mm;
+  font-family: var(--font-mono);
+  font-size: 6.4pt;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+}
+
+.doc-header h1 {
+  margin: 0 0 1.4mm;
+  font-family: var(--font-display);
+  font-size: 31pt;
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: -0.045em;
+}
+
+.doc-header h1 em {
+  font-weight: 400;
+  font-style: italic;
+  color: var(--terracotta);
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 9.4pt;
+  color: var(--ink-soft);
+}
+
+.motto-box {
+  padding-left: 3.2mm;
+  border-left: 0.8mm solid var(--mustard);
+  font-family: var(--font-display);
+  font-size: 9.2pt;
+  font-style: italic;
+  line-height: 1.22;
+  color: var(--ink);
+}
+
+.motto-box small {
+  display: block;
+  margin-top: 1.4mm;
+  font-family: var(--font-mono);
+  font-size: 5.8pt;
+  font-style: normal;
+  line-height: 1.35;
+  color: var(--ink-soft);
+}
+
+/* ---------- sekcje ---------- */
+
+.section {
+  margin-top: 4.8mm;
+}
+
+.section-title {
+  display: flex;
+  align-items: baseline;
+  gap: 2.2mm;
+  margin-bottom: 2.4mm;
+  padding-bottom: 1.1mm;
+  border-bottom: 0.25mm solid var(--line);
+}
+
+.section-title .num {
+  font-family: var(--font-mono);
+  font-size: 6pt;
+  letter-spacing: 0.08em;
+  color: var(--terracotta);
+}
+
+.section-title h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 13pt;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.025em;
+}
+
+.section-title .hint {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 5.8pt;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+/* ---------- 01. definicja ---------- */
+
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1.18fr 0.82fr;
+  gap: 5mm;
+  align-items: start;
+}
+
+.intro-text p {
+  margin-bottom: 1.6mm;
+  font-size: 8.3pt;
+  line-height: 1.42;
+}
+
+.intro-text p:last-child {
+  margin-bottom: 0;
+}
+
+.intro-text .small {
+  padding-top: 1.4mm;
+  border-top: 0.25mm dashed var(--line);
+  font-size: 7.1pt;
+  line-height: 1.4;
+  color: var(--ink-soft);
+}
+
+.features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.6mm;
+}
+
+.feature {
+  min-height: 13mm;
+  padding: 1.8mm;
+  border: 0.25mm solid var(--line);
+  border-radius: 1.8mm;
+  background: #fff;
+}
+
+.feature strong {
+  display: block;
+  margin-bottom: 0.5mm;
+  font-family: var(--font-display);
+  font-size: 8.4pt;
+  line-height: 1.05;
+}
+
+.feature span {
+  display: block;
+  font-size: 6.4pt;
+  line-height: 1.32;
+  color: var(--ink-soft);
+}
+
+/* ---------- 02. oś czasu ---------- */
+
+.timeline {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2mm;
+  padding-top: 5mm;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 2.4mm;
+  left: 0;
+  right: 0;
+  height: 0.3mm;
+  background: var(--line-dark);
+}
+
+.timeline-item {
+  position: relative;
+  padding-top: 4mm;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  top: 1.2mm;
+  left: 0;
+  width: 2.3mm;
+  height: 2.3mm;
+  border-radius: 50%;
+  background: var(--terracotta);
+}
+
+.timeline-year {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 11pt;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--terracotta);
+}
+
+.timeline-title {
+  display: block;
+  margin-top: 0.9mm;
+  font-size: 7.2pt;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.timeline-desc {
+  display: block;
+  margin-top: 0.5mm;
+  font-size: 6.2pt;
+  line-height: 1.3;
+  color: var(--ink-soft);
+}
+
+/* ---------- 03. prawa ---------- */
+
+.section-rights {
+  margin-top: 5.5mm;
+}
+
+.rights-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.2mm;
+}
+
+.right-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 42mm;
+  padding: 2.2mm;
+  border: 0.25mm solid var(--line);
+  border-radius: 1.8mm;
+  background: #fff;
+}
+
+.right-card .n {
+  font-family: var(--font-mono);
+  font-size: 5.8pt;
+  letter-spacing: 0.06em;
+  color: var(--terracotta);
+}
+
+.right-card h3 {
+  margin: 1.2mm 0 0.8mm;
+  font-family: var(--font-display);
+  font-size: 9.2pt;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.right-card .art {
+  display: block;
+  margin-bottom: 1.2mm;
+  font-family: var(--font-mono);
+  font-size: 5.1pt;
+  line-height: 1.32;
+  color: var(--ink-soft);
+}
+
+.right-card p {
+  margin: auto 0 0;
+  padding-top: 1mm;
+  border-top: 0.25mm solid var(--line);
+  font-size: 6.7pt;
+  line-height: 1.35;
+}
+
+.absolute-note {
+  margin: 2.2mm 0 0;
+  padding: 1.8mm 2.4mm;
+  border: 0.25mm dashed rgba(168, 67, 47, 0.5);
+  border-radius: 1.5mm;
+  background: rgba(243, 227, 221, 0.45);
+  font-size: 7.2pt;
+  line-height: 1.4;
+  color: var(--ink-soft);
+}
+
+.absolute-note strong {
+  color: var(--terracotta);
+}
+
+.polish-strip {
+  margin: 2.2mm 0 0;
+  padding: 1.7mm 2.4mm;
+  border-left: 0.7mm solid var(--mustard);
+  border-radius: 0 1.5mm 1.5mm 0;
+  background: #fff9e8;
+  font-size: 6.9pt;
+  line-height: 1.4;
+  color: var(--ink-soft);
+}
+
+.polish-strip strong {
+  color: var(--mustard);
+}
+
+/* ---------- strona 2. nagłówek ---------- */
+
+.doc-header-small {
+  padding-bottom: 2.6mm;
+}
+
+.doc-header-small h1 {
+  font-size: 23pt;
+}
+
+.h1-small {
+  font-size: 23pt !important;
+}
+
+.motto-box-small {
+  font-size: 8.4pt;
+}
+
+/* ---------- 04. instytucje ---------- */
+
+.inst-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2mm;
+}
+
+.inst {
+  min-height: 34mm;
+  padding: 2mm;
+  border: 0.25mm solid var(--line);
+  border-radius: 1.8mm;
+  background: #fff;
+}
+
+.inst .year {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 12pt;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--teal);
+}
+
+.inst h3 {
+  margin: 1.1mm 0 0.7mm;
+  font-family: var(--font-display);
+  font-size: 7.8pt;
+  line-height: 1.1;
+}
+
+.inst p {
+  margin: 0;
+  font-size: 6.2pt;
+  line-height: 1.34;
+  color: var(--ink-soft);
+}
+
+/* ---------- 05. alert / tarcza ---------- */
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3mm;
+}
+
+.box {
+  padding: 2.6mm;
+  border: 0.3mm solid var(--line);
+  border-radius: 2mm;
+  background: #fff;
+}
+
+.box-alert {
+  border-color: rgba(168, 67, 47, 0.35);
+  background: #fffaf5;
+}
+
+.box-shield {
+  border-color: rgba(47, 111, 106, 0.35);
+  background: #f8fcfb;
+}
+
+.box h3 {
+  margin-bottom: 1.5mm;
+  font-family: var(--font-display);
+  font-size: 10pt;
+  line-height: 1;
+}
+
+.box-alert h3 {
+  color: var(--terracotta);
+}
+
+.box-shield h3 {
+  color: var(--teal);
+}
+
+.box ul {
+  margin: 0;
+  padding-left: 3.8mm;
+  font-size: 6.9pt;
+  line-height: 1.4;
+}
+
+.box li {
+  margin-bottom: 1mm;
+}
+
+.box li:last-child {
+  margin-bottom: 0;
+}
+
+.scenario {
+  display: flex;
+  align-items: baseline;
+  gap: 3mm;
+  margin-top: 2.2mm;
+  padding: 2.2mm 2.6mm;
+  border: 0.3mm solid rgba(185, 124, 22, 0.5);
+  border-radius: 2mm;
+  background: #fff9e8;
+}
+
+.scenario strong {
+  flex: 0 0 auto;
+  font-family: var(--font-display);
+  font-size: 8.6pt;
+  color: var(--mustard);
+}
+
+.scenario p {
+  margin: 0;
+  font-size: 6.9pt;
+  line-height: 1.38;
+}
+
+/* ---------- 06. quiz ---------- */
+
+.quiz-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.4mm 6mm;
+}
+
+.quiz-item {
+  font-size: 7pt;
+  line-height: 1.35;
+}
+
+.quiz-item span {
+  color: var(--ink-soft);
+}
+
+.answers {
+  margin: 2.4mm 0 0;
+  padding-top: 1.4mm;
+  border-top: 0.25mm dashed var(--line);
+  font-size: 6.5pt;
+  line-height: 1.4;
+  color: var(--ink-soft);
+}
+
+.answers strong {
+  color: var(--terracotta);
+}
+
+/* ---------- 07. słowniczek ---------- */
+
+.section-glossary {
+  margin-top: 4mm;
+}
+
+.glossary-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 5mm;
+  align-items: start;
+}
+
+.glossary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.1mm 5mm;
+  font-size: 6.4pt;
+  line-height: 1.35;
+  color: var(--ink-soft);
+}
+
+.glossary strong {
+  color: var(--ink);
+}
+
+.student-box {
+  padding: 2.2mm;
+  border: 0.3mm solid rgba(47, 111, 106, 0.35);
+  border-radius: 2mm;
+  background: #f8fcfb;
+}
+
+.student-box h3 {
+  margin-bottom: 1.1mm;
+  font-family: var(--font-display);
+  font-size: 9pt;
+  line-height: 1;
+  color: var(--teal);
+}
+
+.student-box ul {
+  margin: 0 0 1.1mm;
+  padding-left: 3.6mm;
+  font-size: 6.4pt;
+  line-height: 1.35;
+}
+
+.student-box p {
+  margin: 0;
+  font-size: 6.2pt;
+  line-height: 1.35;
+  color: var(--ink-soft);
+}
+
+/* ---------- 08. źródła ---------- */
+
+.section-sources {
+  margin-top: 3.5mm;
+}
+
+.sources {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.1mm 6mm;
+  font-size: 6.3pt;
+  line-height: 1.35;
+  color: var(--ink-soft);
+}
+
+.sources strong {
+  color: var(--ink);
+}
+
+.sources-online {
+  grid-column: 1 / -1;
+  margin-top: 1mm;
+  padding-top: 1mm;
+  border-top: 0.25mm dashed var(--line);
+}
+
+/* ---------- stopka ---------- */
+
+.doc-footer {
+  position: absolute;
+  left: 13mm;
+  right: 13mm;
+  bottom: 7mm;
+  display: flex;
+  justify-content: space-between;
+  gap: 4mm;
+  padding-top: 1.4mm;
+  border-top: 0.25mm solid var(--line);
+  font-family: var(--font-mono);
+  font-size: 5.7pt;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* ---------- druk ---------- */
+
+@page {
+  size: A4;
+  margin: 0;
+}
+
+@media print {
+  body {
+    padding-top: 0;
+    background: #fff;
+  }
+
+  .toolbar {
+    display: none !important;
+  }
+
+  .page {
+    margin: 0;
+    box-shadow: none;
+  }
+
+  .page:last-of-type {
+    break-after: auto;
+    page-break-after: auto;
+  }
+}
+
+/* ---------- małe ekrany (podgląd, nie druk) ---------- */
+
+@media screen and (max-width: 760px) {
+  body {
+    padding-top: 20mm;
+  }
+
+  .toolbar {
+    flex-wrap: wrap;
+    gap: 2mm;
+    font-size: 6pt;
+  }
+
+  .page {
+    width: calc(100vw - 8mm);
+    height: auto;
+    min-height: 0;
+    padding: 7mm 6mm 12mm;
+    margin-bottom: 6mm;
+  }
+
+  .doc-header,
+  .intro-grid,
+  .two-col,
+  .quiz-grid,
+  .sources {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline,
+  .rights-grid,
+  .inst-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .timeline::before {
+    display: none;
+  }
+
+  .timeline-item {
+    padding-top: 0;
+  }
+
+  .timeline-item::before {
+    display: none;
+  }
+
+  .doc-footer {
+    position: static;
+    margin-top: 5mm;
+  }
+}
